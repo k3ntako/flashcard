@@ -1,0 +1,59 @@
+{
+  "activity": "Play Fetch",
+  "supplies": [
+    {
+      "id": 1,
+      "item": "Ball? Ball!"
+    },
+    {
+      "id": 2,
+      "item": "Lots of space"
+    },
+    {
+      "id": 3,
+      "item": "A fence"
+    },
+    {
+      "id": 4,
+      "item": "A stick (optional)"
+    },
+    {
+      "id": 5,
+      "item": "Me!"
+    }
+  ],
+  "directions": [
+    {
+      "id": 1,
+      "step": "Take me to a park, yard, or field. Anywhere where there's lots of room!"
+    },
+    {
+      "id": 2,
+      "step": "Make sure that there is a fence or other safety barrier so I don't get too excited and run away."
+    },
+    {
+      "id": 3,
+      "step": "Ask me if I want the ball (hint: I do!)."
+    },
+    {
+      "id": 4,
+      "step": "Throw the ball."
+    },
+    {
+      "id": 5,
+      "step": "Under no circumstances should you do the thing where you don't actually throw the ball and hide it behind your back."
+    },
+    {
+      "id": 6,
+      "step": "Call me a good boy when I bring the ball back."
+    },
+    {
+      "id": 7,
+      "step": "Do NOT take the ball."
+    },
+    {
+      "id": 8,
+      "step": "Throw the ball again."
+    }
+  ]
+}

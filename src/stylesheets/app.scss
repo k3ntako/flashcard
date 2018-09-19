@@ -3,15 +3,19 @@
 body{
   margin:0;
   font-family: 'Indie Flower', cursive;
+  overflow: hidden;
 }
 .body{
   height: 100vh;
 }
+#app{
+  margin: 2vh 3vw;
+}
 
 .fcard{
-  display: grid;
+
   background-color: white;
-  height: 85vh;
+  height: 100vh;
 }
 
 h1{
@@ -27,23 +31,37 @@ h1{
 
   background-color: white;
   margin: auto;
-  height: 15vh;
+  // height: 12vh;
   font-size: 3rem;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 }
 #next{
   background-color: limegreen;
+  height: 12vh;
 }
 
 #back{
   background-color: crimson;
+  height: 12vh;
 }
 
-#show{
+#home{
   background-color: lightgray;
+  height: 12vh;
+}
+.fsection{
+  border: 2px solid black;
+  border-radius: 10px;
+  display: grid;
+
+}
+
+.bob{
+  height: 100vh;
 }
 // #app{
 //   background-color: red;
