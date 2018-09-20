@@ -4,39 +4,39 @@ class FlashcardSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      innerText: this.props.type,
-      type: this.props.type,
-      cardText: this.props.cardInfo[this.props.type],
-      show: false
+      show: this.props.show
     };
+
+    this.type = this.props.type.replace(/_/g," ")
+    this.cardText = this.props.cardInfo[this.props.type]
+
     this.karmaAlert = this.karmaAlert.bind(this);
   }
 
-
-// const FlashcardSection = props => {
-//   let sectionInfo = [
-//     {
-//       key: "1",
-//       iconName: "Article",
-//       fontAwesomeSymbol: 'fa-file-text-o',
-//       description: "Article Description"
-//     }
-//   ]
-
-
-
   karmaAlert(event) {
     if (this.state.show){
-      this.setState({ innerText: this.state.type, show:false });
+      this.setState({ show:false });
     }else{
-      this.setState({ innerText: this.state.cardText, show:true });
+      this.setState({ show:true });
     }
   }
 
+
+
   render(){
-    let innerT = this.state.innerText.replace(/_/g," ")
+    let innerT
+    if(this.state.show){
+      innerT = this.props.cardInfo[this.props.type];
+    }else{
+      innerT = this.type;
+    }
+
+    let className = "fsection cell small-12 large-6 " + this.props.mastery
+
+
+
     return(
-    <div className = "fsection cell small-12 large-6" onClick={this.karmaAlert}>
+    <div className = {className} onClick={this.karmaAlert}>
       <h1>{innerT}</h1>
     </div>
   );

@@ -6,16 +6,36 @@ body{
   overflow: hidden;
 }
 .body{
-  height: 100vh;
+
 }
+nav.nav{
+  background-color: #e6e6e6;
+  width: 100vw;
+  padding: 0.5rem 3rem;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+
+}
+
+.nav-left{
+
+}
+.nav-center{
+  text-align: center;
+  font-weight: 800;
+}
+.nav-right{
+  text-align: right;
+}
+
 #app{
-  margin: 2vh 3vw;
+
+
 }
 
 .fcard{
+  // background-color: white;
 
-  background-color: white;
-  height: 100vh;
 }
 
 h1{
@@ -24,7 +44,8 @@ h1{
 }
 
 .nav-bar{
-
+  // margin-top: 1.5vh;
+  margin-top: 1rem;
 }
 
 .nav-button{
@@ -38,20 +59,38 @@ h1{
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  color:white;
+  font-weight: 800;
 }
 #next{
   background-color: limegreen;
-  height: 12vh;
+  // height: 12vh;
 }
 
 #back{
   background-color: crimson;
-  height: 12vh;
+  // height: 12vh;
 }
 
 #home{
   background-color: lightgray;
-  height: 12vh;
+  // height: 12vh;
+}
+#mastered-button{
+  background-color: limegreen;//#81aa55; //#b2cf95;
+  color:white;
+  // height: 12vh;
+}
+
+#almost-button{
+  background-color: #ffe38e;//#efcf6e;//#ffff66; //#fce6a3;
+  // height: 12vh;
+}
+
+#learning-button{
+  background-color: #FF0033; //salmon
+  color:white;
+  // height: 12vh;
 }
 .fsection{
   border: 2px solid black;
@@ -60,9 +99,24 @@ h1{
 
 }
 
-.bob{
+.container{
+  margin: 0vh 3vw;
   height: 100vh;
 }
+
+.mastered{
+  border: limegreen 8px solid;
+
+}
+
+.almost{
+  border: #ffe38e 8px solid;
+}
+
+.learning{
+  border: #FF0033 8px solid;
+}
+
 // #app{
 //   background-color: red;
 // }
