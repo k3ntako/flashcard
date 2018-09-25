@@ -9,11 +9,10 @@ class FlashcardSection extends Component {
 
     this.type = this.props.type.replace(/_/g," ")
     this.cardText = this.props.cardInfo[this.props.type]
-
-    this.karmaAlert = this.karmaAlert.bind(this);
+    this.flipCard = this.flipCard.bind(this);
   }
 
-  karmaAlert(event) {
+  flipCard() {
     if (this.state.show){
       this.setState({ show:false });
     }else{
@@ -36,7 +35,7 @@ class FlashcardSection extends Component {
 
 
     return(
-    <div className = {className} onClick={this.karmaAlert}>
+    <div className = {className} onClick={this.flipCard}>
       <h1>{innerT}</h1>
     </div>
   );

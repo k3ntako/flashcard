@@ -20,6 +20,7 @@
     "babel-preset-env": "~1.6.1",
     "babel-preset-react": "6.22.0",
     "css-loader": "0.28.2",
+    "file-loader": "^2.0.0",
     "node-sass": "4.5.3",
     "sass-loader": "6.0.5",
     "style-loader": "0.18.1",

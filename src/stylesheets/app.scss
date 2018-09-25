@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 body{
   margin:0;
-  font-family: 'Indie Flower', cursive;
   overflow: hidden;
+  user-select: none;
+  font-family: 'Quicksand', sans-serif;
 }
 .body{
 
@@ -14,7 +15,7 @@ nav.nav{
   padding: 0.5rem 3rem;
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
-
+  user-select: none;
 }
 
 .nav-left{
@@ -29,18 +30,15 @@ nav.nav{
 }
 
 #app{
-
-
 }
 
 .fcard{
-  // background-color: white;
-
 }
 
 h1{
   margin: auto;
-  font-size: 7rem;
+  font-size: 1.5rem;
+  padding: 0 10px;
 }
 
 .nav-bar{
@@ -96,6 +94,7 @@ h1{
   border: 2px solid black;
   border-radius: 10px;
   display: grid;
+  text-align: center;
 
 }
 
@@ -116,33 +115,3 @@ h1{
 .learning{
   border: #FF0033 8px solid;
 }
-
-// #app{
-//   background-color: red;
-// }
-// .card{
-//   background-color: lightgray;
-//   // width: 60vw;
-//   // height: 60vh;
-//   //
-//   // position: absolute;
-//   // top: 20vh;
-//   // left: 20vw;
-//
-//   display:grid;
-// }
-//
-// h1{
-//   width: 80%;
-//   text-align: center;
-//   margin: auto;
-//   font-size: 7rem;
-//   word-wrap: break-word;
-// }
-//
-//  .button{
-//    background-color: green;
-//    width: 20vw;
-//    text-align: center;
-//    font-size: 2rem;
-//  }

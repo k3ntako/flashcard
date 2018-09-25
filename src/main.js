@@ -1,62 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './stylesheets/foundation.css';
 import './stylesheets/app.scss';
+import './stylesheets/home.scss';
 
-
-import FCard from './containers/FCard';
-import TopNavBar from './containers/TopNavBar';
-
+import App from './components/cards/App';
+import Home from './components/home/Home';
 
 import data from './constants/data.js';
+// import Week2 from './constants/decks/week2.js'
 
 
-class Flashcards extends Component {
-constructor(props) {
-    super(props);
+if(document.getElementById('app')){
+  ReactDOM.render(
+    <App data = {data} />,
+    document.getElementById('app')
+  );
 
-    this.state = {
-      activeCardIdx: 0,
-      lastIdx: data.cards.length - 1
-    };
-
-    this.next = this.next.bind(this);
-    this.back = this.back.bind(this);
-
-  }
-
-  next(){
-    if(this.state.activeCardIdx >= this.state.lastIdx){
-      this.setState({ activeCardIdx: 0 });
-    }else{
-      this.setState({ activeCardIdx: this.state.activeCardIdx + 1 });
-    }
-
-
-  }
-  back(){
-    if(this.state.activeCardIdx <= 0){
-      this.setState({ activeCardIdx: this.state.lastIdx });
-    }else{
-
-      this.setState({ activeCardIdx: this.state.activeCardIdx - 1 });
-    }
-  };
-
-
-
-  render(){
-    return(
-      <div>
-        <TopNavBar clickFuncNext={this.next} clickFuncBack={this.back}/>
-        <FCard cardData = {data} activeIdx = {this.state.activeCardIdx}/>
-      </div>
-    );
-  }
-};
-
-ReactDOM.render(
-  <Flashcards />,
-  document.getElementById('app')
-);
+}else if (document.getElementById('homepage')) {
+  ReactDOM.render(
+    <Home />,
+    document.getElementById('homepage')
+  );
+}
