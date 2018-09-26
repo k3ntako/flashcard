@@ -22,6 +22,7 @@ class FlashcardSection extends Component {
 
 
 
+
   render(){
     let innerT
     if(this.state.show){
@@ -30,13 +31,25 @@ class FlashcardSection extends Component {
       innerT = this.type;
     }
 
-    let className = "fsection cell small-12 large-6 " + this.props.mastery
+    let className = "fsection"
+    if (this.props.mastery){
+      className += ` ${this.props.mastery}`
+    }
+    let idName = "";
+    if (this.props.idName){
+      idName += `${this.props.idName}`
+      className += ` ${this.props.idName}`
+    }
 
 
+
+    // <div className = {className} id={idName} onClick={this.flipCard}>
+    //   <h1 id={idName}>{innerT}</h1>
+    // </div>
 
     return(
-    <div className = {className} onClick={this.flipCard}>
-      <h1>{innerT}</h1>
+    <div className = {className} id={idName} onClick={this.flipCard}>
+      <h1 id={idName}>{innerT}</h1>
     </div>
   );
   }

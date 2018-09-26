@@ -4,15 +4,15 @@ const TopNavBar = props => {
 
 
   return(
-    <nav className="nav grid-x" id="nav">
-      <div onClick={props.clickFuncBack} className="cell small-4 nav-left">
-        Back
+    <nav className="nav css-grid-container" id="nav">
+      <div className="nav-left">
+        <span className="nav-option" onClick={props.clickFuncBack}>Back</span>
       </div>
-      <div className="cell small-4 nav-center">
-        K3ntako Flashcards
+      <div className="nav-center">
+        <span className="nav-option"><a href="/">K3ntako Flashcards</a></span>
       </div>
-      <div onClick={props.clickFuncNext} className className="cell small-4 nav-right">
-        Next
+      <div className="nav-right">
+        <span className="nav-option" onClick={props.clickFuncNext}>Next</span>
       </div>
     </nav>
   )

@@ -40,20 +40,33 @@ class FCard extends Component {
     let key2 = activeIdx + "-" + "2"
     let key3 = activeIdx + "-" + "3"
 
+
+    let definitionCards = Object.keys(activeCardInfo.Definitions).map(objectKey => {
+
+      let uniqueKey = activeIdx + objectKey
+      return(
+          <FlashcardSection key={uniqueKey} type={objectKey} cardInfo = {activeCardInfo.Definitions} show = {false}/>
+      )
+
+    })
+    console.log("A",activeCardInfo)
+
     return(
-      <div className="grid-y container">
-        <div className = "fcard cell small-10 large-10 grid-x grid-margin-x grid-margin-y">
-          <FlashcardSection key = {key0} type={"Term"} cardInfo = {activeCardInfo} show = {true} mastery={mastery}/>
-          <FlashcardSection key = {key1} type={"Definition_1"} cardInfo = {activeCardInfo} show = {false}/>
-          <FlashcardSection key = {key2} type={"Definition_2"} cardInfo = {activeCardInfo} show = {false}/>
-          <FlashcardSection key = {key3} type={"Definition_3"} cardInfo = {activeCardInfo} show = {false}/>
+      <div className="css-grid-container container">
+
+        <div className = "fcard">
+          <FlashcardSection key = {key0} type={"Term"} cardInfo = {activeCardInfo} show = {true} mastery={mastery} idName="term"/>
+
+          {definitionCards}
+
         </div>
 
 
-        <div className="grid-x cell small-1 large-1 grid-margin-x nav-bar">
-          <MasteryButton direction={"learning"} classNa={"small-4"} clickFunc={this.setMastery}/>
-          <MasteryButton direction={"almost"} classNa={"small-4"} clickFunc={this.setMastery}/>
-          <MasteryButton direction={"mastered"} classNa={"small-4"} clickFunc={this.setMastery}/>
+
+        <div className="css-grid-container nav-bar">
+          <MasteryButton direction={"learning"} clickFunc={this.setMastery}/>
+          <MasteryButton direction={"almost"} clickFunc={this.setMastery}/>
+          <MasteryButton direction={"mastered"} clickFunc={this.setMastery}/>
         </div>
       </div>
 

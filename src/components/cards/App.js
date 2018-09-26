@@ -37,16 +37,16 @@ constructor(props) {
 
 
   render(){
-    console.log(this.props.data)
+
     if (localStorage.length === 0){
       localStorage.setItem("Test", JSON.stringify(this.props.data))
     };
     let deck = JSON.parse(localStorage.Test)
 
 
-    console.log(localStorage.Test)
+
     return(
-      <div>
+      <div className="containerOverall">
         <TopNavBar clickFuncNext={this.next} clickFuncBack={this.back}/>
         <FCard cardData = {deck} activeIdx = {this.state.activeCardIdx} />
       </div>

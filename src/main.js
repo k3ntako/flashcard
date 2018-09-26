@@ -8,13 +8,13 @@ import './stylesheets/home.scss';
 import App from './components/cards/App';
 import Home from './components/home/Home';
 
-import data from './constants/data.js';
-// import Week2 from './constants/decks/week2.js'
+// import data from './constants/data.js';
+import Week2 from './constants/decks/week2.js'
 
 
 if(document.getElementById('app')){
   ReactDOM.render(
-    <App data = {data} />,
+    <App data = {Week2} />,
     document.getElementById('app')
   );
 

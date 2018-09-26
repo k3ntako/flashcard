@@ -2,13 +2,20 @@
 
 body{
   margin:0;
-  overflow: hidden;
+  // overflow: hidden;
   user-select: none;
   font-family: 'Quicksand', sans-serif;
+  background-color: #white;
 }
 .body{
 
 }
+
+// grid
+.css-grid-container{
+  display: grid;
+}
+
 nav.nav{
   background-color: #e6e6e6;
   width: 100vw;
@@ -16,6 +23,15 @@ nav.nav{
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
   user-select: none;
+
+  // grid
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100vw;
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.nav-option:hover{
+  color:steelblue;
 }
 
 .nav-left{
@@ -23,16 +39,19 @@ nav.nav{
 }
 .nav-center{
   text-align: center;
-  font-weight: 800;
+  font-weight: bold;
 }
 .nav-right{
   text-align: right;
 }
 
 #app{
+
+  margin-bottom: 3%;
 }
 
 .fcard{
+  grid-column: 2 / span 1;
 }
 
 h1{
@@ -44,7 +63,16 @@ h1{
 .nav-bar{
   // margin-top: 1.5vh;
   margin-top: 1rem;
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+  width: 100%;
+  grid-column-gap: 1%;
+
+  grid-template-columns: 1fr 1fr 1fr;
+
 }
+
+
 
 .nav-button{
 
@@ -59,6 +87,13 @@ h1{
   border-radius: 10px;
   color:white;
   font-weight: 800;
+  width: 100%;
+}
+.nav-button:hover{
+  color:black;
+}
+.nav-button:active{
+  color:#dddddd;
 }
 #next{
   background-color: limegreen;
@@ -76,7 +111,7 @@ h1{
 }
 #mastered-button{
   background-color: limegreen;//#81aa55; //#b2cf95;
-  color:white;
+
   // height: 12vh;
 }
 
@@ -87,7 +122,7 @@ h1{
 
 #learning-button{
   background-color: #FF0033; //salmon
-  color:white;
+
   // height: 12vh;
 }
 .fsection{
@@ -95,12 +130,24 @@ h1{
   border-radius: 10px;
   display: grid;
   text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: white;
+}
 
+.term{
+  border: black 8px solid;
 }
 
 .container{
   margin: 0vh 3vw;
-  height: 100vh;
+  // height: 100%;
+  grid-template-columns: 10% 80% 10%;
+  // grid-template-rows: 80% 10%;
+}
+
+.containerOverall{
+  height:100%;
 }
 
 .mastered{
@@ -114,4 +161,14 @@ h1{
 
 .learning{
   border: #FF0033 8px solid;
+}
+
+#term{
+  background-color: #white;
+  color: #093145;
+  font-size: 1.5em;
+  font-weight: 900;
+}
+a{
+  color:black;
 }
