@@ -16,8 +16,11 @@ body{
   display: grid;
 }
 
+
+
 nav.nav{
-  background-color: #e6e6e6;
+  background-color: #093145; // #e6e6e6;
+
   width: 100vw;
   padding: 0.5rem 3rem;
   font-size: 1.8rem;
@@ -30,8 +33,13 @@ nav.nav{
   box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
 
-.nav-option:hover{
-  color:steelblue;
+.nav-k3ntako, .nav-k3ntako:focus{
+  color:white;
+}
+
+.nav-k3ntako:focus{
+
+
 }
 
 .nav-left{
@@ -51,7 +59,7 @@ nav.nav{
 }
 
 .fcard{
-  grid-column: 2 / span 1;
+  grid-column: 1 / span 1;
 }
 
 h1{
@@ -63,7 +71,7 @@ h1{
 .nav-bar{
   // margin-top: 1.5vh;
   margin-top: 1rem;
-  grid-column: 2 / span 1;
+  grid-column: 1 / span 1;
   grid-row: 2 / span 1;
   width: 100%;
   grid-column-gap: 1%;
@@ -136,18 +144,24 @@ h1{
 }
 
 .term{
-  border: black 8px solid;
+  border: #093145 8px solid;
 }
 
 .container{
-  margin: 0vh 3vw;
+  // margin: 0vh 3vw;
   // height: 100%;
-  grid-template-columns: 10% 80% 10%;
+  // grid-template-columns: 10% 80% 10%;
+  grid-template-columns:100%;
+  width: 80vw;
+  float:left;
+
+
   // grid-template-rows: 80% 10%;
 }
 
 .containerOverall{
   height:100%;
+  display: inline;
 }
 
 .mastered{
@@ -171,4 +185,24 @@ h1{
 }
 a{
   color:black;
+}
+
+.cardControls{
+  height:90vh;
+  width:10vw;
+
+  float:left;
+
+  padding-top: 10vh;
+
+  font-size: 10vw;
+}
+
+
+i{
+  width: 100%;
+  text-align: center;
+}
+i:hover{
+  color:steelblue;
 }

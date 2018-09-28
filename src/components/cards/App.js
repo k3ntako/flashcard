@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import TopNavBar from './TopNavBar';
 import FCard from './FCard';
+import Week2 from '../../constants/decks/week2.js'
+
 
 class App extends Component {
 constructor(props) {
@@ -8,7 +10,7 @@ constructor(props) {
 
     this.state = {
       activeCardIdx: 0,
-      lastIdx: props.data.cards.length - 1
+      lastIdx: Week2.cards.length - 1
     };
 
     this.next = this.next.bind(this);
@@ -39,7 +41,7 @@ constructor(props) {
   render(){
 
     if (localStorage.length === 0){
-      localStorage.setItem("Test", JSON.stringify(this.props.data))
+      localStorage.setItem("Test", JSON.stringify(Week2))
     };
     let deck = JSON.parse(localStorage.Test)
 
@@ -47,11 +49,19 @@ constructor(props) {
 
     return(
       <div className="containerOverall">
-        <TopNavBar clickFuncNext={this.next} clickFuncBack={this.back}/>
+        <TopNavBar clickFunc={this.back} side="left"/>
         <FCard cardData = {deck} activeIdx = {this.state.activeCardIdx} />
+        <TopNavBar clickFunc={this.next} side="right"/>
       </div>
     );
   }
 };
 
 export default App
+
+// return(
+//   <div className="containerOverall">
+//     <TopNavBar clickFuncNext={this.next} clickFuncBack={this.back}/>
+//     <FCard cardData = {deck} activeIdx = {this.state.activeCardIdx} />
+//   </div>
+// );

@@ -7,20 +7,27 @@ import './stylesheets/home.scss';
 
 import App from './components/cards/App';
 import Home from './components/home/Home';
+import FCRouter from './components/FCRouter';
+
 
 // import data from './constants/data.js';
-import Week2 from './constants/decks/week2.js'
+// import Week2 from './constants/decks/week2.js'
 
+//
+// if(document.getElementById('app')){
+//   ReactDOM.render(
+//     <App data = {Week2} />,
+//     document.getElementById('app')
+//   );
+//
+// }else if (document.getElementById('homepage')) {
+//   ReactDOM.render(
+//     <Home />,
+//     document.getElementById('homepage')
+//   );
+// }
 
-if(document.getElementById('app')){
-  ReactDOM.render(
-    <App data = {Week2} />,
+ReactDOM.render(
+    <FCRouter />,
     document.getElementById('app')
   );
-
-}else if (document.getElementById('homepage')) {
-  ReactDOM.render(
-    <Home />,
-    document.getElementById('homepage')
-  );
-}

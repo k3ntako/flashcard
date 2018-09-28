@@ -623,7 +623,8 @@ a {
   color: #4682B4;
   text-decoration: none;
   cursor: pointer; }
-  a:hover, a:focus {
+  a:hover {
+  /* Kentaro replaced above a:hover, a:focus { */
     color: #3c709b; }
   a img {
     border: 0; }
