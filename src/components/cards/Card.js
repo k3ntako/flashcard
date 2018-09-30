@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class FlashcardSection extends Component {
+class Card extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,9 +20,6 @@ class FlashcardSection extends Component {
     }
   }
 
-
-
-
   render(){
     let innerT
     if(this.state.show){
@@ -31,7 +28,7 @@ class FlashcardSection extends Component {
       innerT = this.type;
     }
 
-    let className = "fsection"
+    let className = "flashcard"
     if (this.props.mastery){
       className += ` ${this.props.mastery}`
     }
@@ -42,17 +39,12 @@ class FlashcardSection extends Component {
     }
 
 
-
-    // <div className = {className} id={idName} onClick={this.flipCard}>
-    //   <h1 id={idName}>{innerT}</h1>
-    // </div>
-
     return(
-    <div className = {className} id={idName} onClick={this.flipCard}>
-      <h1 id={idName}>{innerT}</h1>
+    <div className = {className} onClick={this.flipCard}>
+      <h1 className="card-text" id={idName}>{innerT}</h1>
     </div>
   );
   }
 };
 
-export default FlashcardSection;
+export default Card;

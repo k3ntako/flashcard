@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import FlashcardSection from "./FlashcardSection"
+import Card from "./Card"
 import MasteryButton from './MasteryButton';
 
-class FCard extends Component {
+class Flashcards extends Component {
   constructor(props) {
     super(props);
 
@@ -45,25 +45,24 @@ class FCard extends Component {
 
       let uniqueKey = activeIdx + objectKey
       return(
-          <FlashcardSection key={uniqueKey} type={objectKey} cardInfo = {activeCardInfo.Definitions} show = {false}/>
+          <Card key={uniqueKey} type={objectKey} cardInfo = {activeCardInfo.Definitions} show = {false}/>
       )
 
     })
     console.log("A",activeCardInfo)
 
     return(
-      <div className="css-grid-container container">
+      <div className="css-grid-container cards-container">
 
-        <div className = "fcard">
-          <FlashcardSection key = {key0} type={"Term"} cardInfo = {activeCardInfo} show = {true} mastery={mastery} idName="term"/>
+        <div className = "flashcards">
+          <Card key = {key0} type={"Term"} cardInfo = {activeCardInfo} show = {true} mastery={mastery} idName="term"/>
 
           {definitionCards}
-
         </div>
 
 
 
-        <div className="css-grid-container nav-bar">
+        <div className="css-grid-container card-control-bar">
           <MasteryButton direction={"learning"} clickFunc={this.setMastery}/>
           <MasteryButton direction={"almost"} clickFunc={this.setMastery}/>
           <MasteryButton direction={"mastered"} clickFunc={this.setMastery}/>
@@ -75,4 +74,4 @@ class FCard extends Component {
 
 };
 
-export default FCard;
+export default Flashcards;

@@ -1,193 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
-
-body{
-  margin:0;
-  // overflow: hidden;
-  user-select: none;
-  font-family: 'Quicksand', sans-serif;
-  background-color: #white;
-}
-.body{
-
-}
-
-// grid
-.css-grid-container{
-  display: grid;
-}
-
-
-
-nav.nav{
-  background-color: #093145; // #e6e6e6;
-
-  width: 100vw;
-  padding: 0.5rem 3rem;
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-  user-select: none;
-
-  // grid
-  grid-template-columns: 1fr 1fr 1fr;
-  width: 100vw;
-  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-}
-
-.nav-k3ntako, .nav-k3ntako:focus{
-  color:white;
-}
-
-.nav-k3ntako:focus{
-
-
-}
-
-.nav-left{
-
-}
-.nav-center{
-  text-align: center;
-  font-weight: bold;
-}
-.nav-right{
-  text-align: right;
-}
-
-#app{
-
-  margin-bottom: 3%;
-}
-
-.fcard{
-  grid-column: 1 / span 1;
-}
-
-h1{
-  margin: auto;
-  font-size: 1.5rem;
-  padding: 0 10px;
-}
-
-.nav-bar{
-  // margin-top: 1.5vh;
-  margin-top: 1rem;
-  grid-column: 1 / span 1;
-  grid-row: 2 / span 1;
-  width: 100%;
-  grid-column-gap: 1%;
-
-  grid-template-columns: 1fr 1fr 1fr;
-
-}
-
-
-
-.nav-button{
-
-  background-color: white;
-  margin: auto;
-  // height: 12vh;
-  font-size: 3rem;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  color:white;
-  font-weight: 800;
-  width: 100%;
-}
-.nav-button:hover{
-  color:black;
-}
-.nav-button:active{
-  color:#dddddd;
-}
-#next{
-  background-color: limegreen;
-  // height: 12vh;
-}
-
-#back{
-  background-color: crimson;
-  // height: 12vh;
-}
-
-#home{
-  background-color: lightgray;
-  // height: 12vh;
-}
-#mastered-button{
-  background-color: limegreen;//#81aa55; //#b2cf95;
-
-  // height: 12vh;
-}
-
-#almost-button{
-  background-color: #ffe38e;//#efcf6e;//#ffff66; //#fce6a3;
-  // height: 12vh;
-}
-
-#learning-button{
-  background-color: #FF0033; //salmon
-
-  // height: 12vh;
-}
-.fsection{
-  border: 2px solid black;
-  border-radius: 10px;
-  display: grid;
-  text-align: center;
-  margin-top: 10px;
-  padding: 10px;
-  background-color: white;
-}
-
-.term{
-  border: #093145 8px solid;
-}
-
-.container{
-  // margin: 0vh 3vw;
-  // height: 100%;
-  // grid-template-columns: 10% 80% 10%;
-  grid-template-columns:100%;
-  width: 80vw;
-  float:left;
-
-
-  // grid-template-rows: 80% 10%;
-}
-
-.containerOverall{
+/////////Cards Page/////////
+.cards-page{
   height:100%;
   display: inline;
 }
 
-.mastered{
-  border: limegreen 8px solid;
-
-}
-
-.almost{
-  border: #ffe38e 8px solid;
-}
-
-.learning{
-  border: #FF0033 8px solid;
-}
-
-#term{
-  background-color: #white;
-  color: #093145;
-  font-size: 1.5em;
-  font-weight: 900;
-}
-a{
-  color:black;
-}
-
-.cardControls{
+/////////Naxt and Back Buttons/////////
+div.card-control{
   height:90vh;
   width:10vw;
 
@@ -198,11 +16,106 @@ a{
   font-size: 10vw;
 }
 
-
-i{
+i.card-control{
   width: 100%;
   text-align: center;
 }
-i:hover{
+i.card-control:hover{
   color:steelblue;
+}
+
+/////////Flashcards and Mastery Buttons/////////
+.cards-container{
+  grid-template-columns:100%;
+  width: 80vw;
+  float:left;
+}
+
+/////////Flashcards/////////
+.flashcards{
+  grid-column: 1 / span 1;
+}
+
+.flashcard{
+  border: 2px solid black;
+  border-radius: 10px;
+  display: grid;
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: white;
+}
+
+h1.card-text{
+  margin: auto;
+  font-size: 1.5rem;
+  padding: 0 10px;
+}
+
+.term{
+  border: #093145 8px solid;
+}
+
+.mastered{
+  border: limegreen 8px solid;
+}
+
+.almost{
+  border: #ffe38e 8px solid;
+}
+
+.learning{
+  border: #FF0033 8px solid;
+}
+
+h1#term{
+  background-color: #white;
+  color: #093145;
+  font-size: 2.25rem;
+  font-weight: 900;
+}
+
+/////////Mastery Buttons/////////
+.card-control-bar{
+  margin-top: 1rem;
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
+  width: 100%;
+  grid-column-gap: 1%;
+
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card-control-button{
+  background-color: white;
+  margin: auto;
+  // height: 12vh;
+  // font-size: 3rem;
+  font-size: 6vmin;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  color:white;
+  font-weight: 800;
+  width: 100%;
+}
+.card-control-button:hover{
+  color:black;
+}
+.card-control-button:active{
+  color:#dddddd;
+}
+
+#mastered-button{
+  background-color: limegreen;//#81aa55; //#b2cf95;
+}
+
+#almost-button{
+  background-color: #ffe38e;//#efcf6e;//#ffff66; //#fce6a3;
+}
+
+#learning-button{
+  background-color: #FF0033; //salmon
 }

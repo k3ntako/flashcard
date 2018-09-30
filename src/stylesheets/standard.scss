@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+body{
+  margin:0;
+  user-select: none;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #white;
+}
+
+a{
+  color:black;
+}
+
+.css-grid-container{
+  display: grid;
+}
+
+#app{
+  margin-bottom: 3%;
+}
+
+/////////Nav Bar/////////
+nav.nav{
+  background-color: #093145; // #e6e6e6;
+
+  width: 100vw;
+  padding: 0.5rem 3rem;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  user-select: none;
+
+  grid-template-columns: 1fr 1fr 1fr;
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+
+.nav-k3ntako, .nav-k3ntako:focus{
+  color:white;
+}
+
+.nav-center{
+  text-align: center;
+  font-weight: bold;
+}

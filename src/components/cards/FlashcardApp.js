@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import TopNavBar from './TopNavBar';
-import FCard from './FCard';
+import CardControl from './CardControl';
+import Flashcards from './Flashcards';
 import Week2 from '../../constants/decks/week2.js'
 
 
-class App extends Component {
+class FlashcardApp extends Component {
 constructor(props) {
     super(props);
 
@@ -48,20 +48,13 @@ constructor(props) {
 
 
     return(
-      <div className="containerOverall">
-        <TopNavBar clickFunc={this.back} side="left"/>
-        <FCard cardData = {deck} activeIdx = {this.state.activeCardIdx} />
-        <TopNavBar clickFunc={this.next} side="right"/>
+      <div className="cards-page">
+        <CardControl clickFunc={this.back} side="left"/>
+        <Flashcards cardData = {deck} activeIdx = {this.state.activeCardIdx} />
+        <CardControl clickFunc={this.next} side="right"/>
       </div>
     );
   }
 };
 
-export default App
-
-// return(
-//   <div className="containerOverall">
-//     <TopNavBar clickFuncNext={this.next} clickFuncBack={this.back}/>
-//     <FCard cardData = {deck} activeIdx = {this.state.activeCardIdx} />
-//   </div>
-// );
+export default FlashcardApp

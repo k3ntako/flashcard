@@ -4,7 +4,7 @@ const MasteryButton = props => {
   let buttonText = props.direction.charAt(0).toUpperCase() + props.direction.slice(1)
 
   // let classN = "nav-button cell nav-bar " + props.classNa
-  let classN = "nav-button"
+  let classN = "card-control-button"
 
   let buttonId = props.direction + "-button"
   return(

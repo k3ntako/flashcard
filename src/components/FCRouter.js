@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, browserHistory, Route, IndexRoute, Link } from 'react-router';
 
 import Home from './home/Home';
-import App from './cards/App';
+import FlashcardApp from './cards/FlashcardApp';
 
 
 
@@ -14,7 +14,7 @@ const FCRouter = props => {
     <Router history={browserHistory}>
       <Route path='/' component={NavBar} >
         <IndexRoute component={Home} />
-        <Route path="/cards" component={App}/>
+        <Route path="/cards" component={FlashcardApp}/>
       </Route>
     </Router>
   )
