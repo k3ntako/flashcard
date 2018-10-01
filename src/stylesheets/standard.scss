@@ -42,3 +42,18 @@ nav.nav{
   text-align: center;
   font-weight: bold;
 }
+
+/////////Error Page/////////
+div.error-page{
+  width: 60vw;
+  margin: auto;
+  text-align: center;
+}
+
+h3.error-message > a{
+  color: red;
+}
+
+h3.error-message > a:hover{
+  color: steelblue;
+}

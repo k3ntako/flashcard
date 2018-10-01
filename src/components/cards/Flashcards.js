@@ -10,57 +10,78 @@ class Flashcards extends Component {
       deck: this.props.cardData
     };
     this.setMastery = this.setMastery.bind(this);
+    this.saveToFile = this.saveToFile.bind(this);
   }
-
-
 
   setMastery(event) {
     let buttonId = event.target.attributes.id.value;
     let newMastery = buttonId.replace(/-button/g,"")
 
-
-    let json = JSON.parse(localStorage.Test)
+    let json = this.state.deck
     json.cards[this.props.activeIdx].Mastery = newMastery
-    localStorage.setItem("Test", JSON.stringify(json))
 
+    this.saveToFile(json)
+  }
 
-    this.setState({deck: json});
+  saveToFile(updatedDeck){
+    let jsonStringData = JSON.stringify(updatedDeck);
+
+    fetch("/api/v1/decks/week2", {
+      method: 'post',
+      body: jsonStringData
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({deck: body});
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render(){
-
-    let activeIdx = this.props.activeIdx
-    let activeCardInfo = this.state.deck.cards[activeIdx]
-    let mastery = activeCardInfo.Mastery
-
-
-
     let key0 = activeIdx + "-" + "0"
     let key1 = activeIdx + "-" + "1"
     let key2 = activeIdx + "-" + "2"
     let key3 = activeIdx + "-" + "3"
 
+    let activeIdx = this.props.activeIdx
+    let activeCardInfo = this.state.deck.cards[activeIdx];
+    let mastery = activeCardInfo.Mastery;
 
     let definitionCards = Object.keys(activeCardInfo.Definitions).map(objectKey => {
-
       let uniqueKey = activeIdx + objectKey
       return(
-          <Card key={uniqueKey} type={objectKey} cardInfo = {activeCardInfo.Definitions} show = {false}/>
+        <Card
+          key={uniqueKey}
+          type={objectKey}
+          cardInfo = {activeCardInfo.Definitions}
+          show = {false}
+        />
       )
-
     })
-    console.log("A",activeCardInfo)
 
     return(
       <div className="css-grid-container cards-container">
-
         <div className = "flashcards">
-          <Card key = {key0} type={"Term"} cardInfo = {activeCardInfo} show = {true} mastery={mastery} idName="term"/>
+          <Card
+            key = {key0}
+            type={"Term"}
+            cardInfo = {activeCardInfo}
+            show = {true}
+            mastery={mastery}
+            idName="term"
+          />
 
           {definitionCards}
         </div>
-
-
 
         <div className="css-grid-container card-control-bar">
           <MasteryButton direction={"learning"} clickFunc={this.setMastery}/>

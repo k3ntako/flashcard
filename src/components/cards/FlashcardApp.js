@@ -10,12 +10,13 @@ constructor(props) {
 
     this.state = {
       activeCardIdx: 0,
+      activeDeck: {},
       lastIdx: Week2.cards.length - 1
     };
 
     this.next = this.next.bind(this);
     this.back = this.back.bind(this);
-
+    this.fetchDeck = this.fetchDeck.bind(this);
   }
 
   next(){
@@ -36,23 +37,54 @@ constructor(props) {
     }
   };
 
+  fetchDeck(){
+    fetch("/api/v1/decks/week2")
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => {
+      console.log('response.status:', response.status);
+      console.log('response.statusText:', response.statusText);
+      return response.json();
+    })
+    .then(data => {
+      this.setState({activeDeck: data})
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
 
+  componentDidMount(){
+    this.fetchDeck()
+  }
 
   render(){
+  let cardsPage = () => "Loading"
 
-    if (localStorage.length === 0){
-      localStorage.setItem("Test", JSON.stringify(Week2))
-    };
-    let deck = JSON.parse(localStorage.Test)
+  if(Object.keys(this.state.activeDeck).length > 0){
+    cardsPage = () => {
+      return (
+        <div className="cards-page">
+          <CardControl clickFunc={this.back} side="left"/>
+          <Flashcards cardData = {this.state.activeDeck} activeIdx = {this.state.activeCardIdx} />
+          <CardControl clickFunc={this.next} side="right"/>
+        </div>
+      )
+    }
+  }
+
 
 
 
     return(
-      <div className="cards-page">
-        <CardControl clickFunc={this.back} side="left"/>
-        <Flashcards cardData = {deck} activeIdx = {this.state.activeCardIdx} />
-        <CardControl clickFunc={this.next} side="right"/>
-      </div>
+      <div>{cardsPage()}</div>
+
+
     );
   }
 };

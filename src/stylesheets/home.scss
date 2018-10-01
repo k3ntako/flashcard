@@ -1,12 +1,31 @@
+.homepage{
+  width: 80vw;
+  margin: auto;
+}
+
 .startCards{
   display:block;
 }
-
-
 
 h2#startCards{
   margin: auto;
   width:100%;
   text-align: center;
+}
 
+
+.deck-tile{
+  width: 80vw;
+  margin: 10px auto;
+
+  padding: 10px;
+  text-align: center;
+
+  border: 8px solid black;
+  border-radius: 10px;
+}
+
+#deck-selected{
+  background-color: limegreen;
+  color:white;
 }
