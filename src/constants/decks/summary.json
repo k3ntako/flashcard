@@ -1,0 +1,35 @@
+{
+  "selectedDeckId": 2,
+  "decks": {
+    "1": {
+      "deckId": 1,
+      "name": "Week 1",
+      "url": "/api/v1/decks/week1",
+      "learning": 0,
+      "almost": 0,
+      "mastered": 0,
+      "dateCreated": null,
+      "dateLastUpdated": null
+    },
+    "2": {
+      "deckId": 2,
+      "name": "Week 2",
+      "url": "/api/v1/decks/week2",
+      "learning": 0,
+      "almost": 0,
+      "mastered": 0,
+      "dateCreated": null,
+      "dateLastUpdated": null
+    },
+    "3": {
+      "deckId": 3,
+      "name": "Week 3",
+      "url": "/api/v1/decks/week3",
+      "learning": 0,
+      "almost": 0,
+      "mastered": 0,
+      "dateCreated": null,
+      "dateLastUpdated": null
+    }
+  }
+}

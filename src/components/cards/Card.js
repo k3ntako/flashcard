@@ -20,6 +20,10 @@ class Card extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps){
+    this.setState({show: nextProps.show})
+  }
+
   render(){
     let innerT
     if(this.state.show){

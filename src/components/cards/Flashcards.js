@@ -7,10 +7,13 @@ class Flashcards extends Component {
     super(props);
 
     this.state = {
-      deck: this.props.cardData
+      deck: this.props.cardData,
+      showAll: false
     };
     this.setMastery = this.setMastery.bind(this);
     this.saveToFile = this.saveToFile.bind(this);
+    this.toggleShow = this.toggleShow.bind(this);
+
   }
 
   setMastery(event) {
@@ -24,9 +27,10 @@ class Flashcards extends Component {
   }
 
   saveToFile(updatedDeck){
+    console.log("fc save", updatedDeck)
     let jsonStringData = JSON.stringify(updatedDeck);
 
-    fetch("/api/v1/decks/week2", {
+    fetch(updatedDeck.url, {
       method: 'post',
       body: jsonStringData
     })
@@ -46,6 +50,16 @@ class Flashcards extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  toggleShow(){
+    console.log("hello")
+    this.setState({showAll: !this.state.showAll})
+  }
+
+componentWillReceiveProps(){
+  this.setState({showAll: false})
+
+}
+
   render(){
     let key0 = activeIdx + "-" + "0"
     let key1 = activeIdx + "-" + "1"
@@ -58,15 +72,23 @@ class Flashcards extends Component {
 
     let definitionCards = Object.keys(activeCardInfo.Definitions).map(objectKey => {
       let uniqueKey = activeIdx + objectKey
+      console.log("Inside", this.state.showAll)
       return(
         <Card
           key={uniqueKey}
           type={objectKey}
           cardInfo = {activeCardInfo.Definitions}
-          show = {false}
+          show = {this.state.showAll}
         />
       )
     })
+
+    let toggleClass = "far "
+    if(this.state.showAll){
+      toggleClass += "fa-eye-slash"
+    }else{
+      toggleClass += "fa-eye"
+    }
 
     return(
       <div className="css-grid-container cards-container">
@@ -87,6 +109,10 @@ class Flashcards extends Component {
           <MasteryButton direction={"learning"} clickFunc={this.setMastery}/>
           <MasteryButton direction={"almost"} clickFunc={this.setMastery}/>
           <MasteryButton direction={"mastered"} clickFunc={this.setMastery}/>
+        </div>
+
+        <div id="toggle">
+          <i onClick={this.toggleShow} className={toggleClass} title="Toggle Show"></i>
         </div>
       </div>
 

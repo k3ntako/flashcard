@@ -7,12 +7,9 @@
 /////////Naxt and Back Buttons/////////
 div.card-control{
   height:90vh;
-  width:10vw;
-
+  width:9vw;
   float:left;
-
   padding-top: 10vh;
-
   font-size: 10vw;
 }
 
@@ -118,4 +115,13 @@ h1#term{
 
 #learning-button{
   background-color: #FF0033; //salmon
+}
+
+/////////Toggle/////////
+#toggle{
+  position: absolute;
+  left:92vw;
+  top:5vh;
+  color:black;
+  font-size: 5vw;
 }

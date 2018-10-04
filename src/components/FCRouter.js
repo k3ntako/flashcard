@@ -3,18 +3,75 @@ import { Router, browserHistory, Route, IndexRoute, Link } from 'react-router';
 
 import Home from './home/Home';
 import FlashcardApp from './cards/FlashcardApp';
+import Edit from './edit/edit';
+
 
 class FCRouter extends Component {
 constructor(props) {
     super(props);
     this.state = {
-      selectedDeck: null
+      // selectedDeck: null,
+      summary: {}
     };
     this.setSelectedDeck = this.setSelectedDeck.bind(this);
+    this.fetchSummary = this.fetchSummary.bind(this);
   }
 
   setSelectedDeck(id){
-    this.setState({selectedDeck: id})
+    // this.setState({selectedDeck: id})
+    this.saveSummaryToFile(id)
+  }
+
+  fetchSummary(){
+    fetch("/api/v1/decks/summary")
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => {
+      console.log('response.status:', response.status);
+      console.log('response.statusText:', response.statusText);
+      return response.json();
+    })
+    .then(data => {
+      this.setState({summary: data})
+      // console.log(data)
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+  saveSummaryToFile(selectedDeckId){
+    let updatedDeck = this.state.summary
+    updatedDeck.selectedDeckId = selectedDeckId
+    let jsonStringData = JSON.stringify(updatedDeck);
+
+    fetch("/api/v1/decks/summary", {
+      method: 'post',
+      body: jsonStringData
+    })
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+        error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({summary: body});
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+  componentDidMount(){
+    this.fetchSummary()
   }
 
   render(){
@@ -24,13 +81,21 @@ constructor(props) {
           <IndexRoute component={() =>
             <Home
               selectDeckFunc={this.setSelectedDeck}
-              selectedDeck= {this.state.selectedDeck}
+              selectedDeck= {this.state.summary.selectedDeckId}
               />
             }
           />
           <Route path="/cards" component={() =>
             <FlashcardApp
-              selectedDeck = {this.state.selectedDeck}
+              selectedDeck = {this.state.summary.selectedDeckId}
+              deckSummary = {this.state.summary}
+              />
+            }
+          />
+        <Route path="/edit" component={() =>
+            <Edit
+              selectedDeck = {this.state.summary.selectedDeckId}
+              deckSummary = {this.state.summary}
               />
             }
           />

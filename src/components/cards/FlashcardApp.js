@@ -11,7 +11,7 @@ constructor(props) {
     this.state = {
       activeCardIdx: 0,
       activeDeck: {},
-      lastIdx: Week2.cards.length - 1
+      lastIdx: 0
     };
 
     this.next = this.next.bind(this);
@@ -37,8 +37,10 @@ constructor(props) {
     }
   };
 
-  fetchDeck(){
-    fetch("/api/v1/decks/week2")
+  fetchDeck(summary){
+    let selectedDeckId = summary.selectedDeckId
+
+    fetch(summary.decks[selectedDeckId].url)
     .then(response => {
       if (response.ok) {
         return response;
@@ -54,17 +56,24 @@ constructor(props) {
       return response.json();
     })
     .then(data => {
-      this.setState({activeDeck: data})
+      this.setState({activeDeck: data, lastIdx: data.cards.length -1})
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
+
   }
 
   componentDidMount(){
-    this.fetchDeck()
+    if(this.props.deckSummary.selectedDeckId){
+      this.fetchDeck(this.props.deckSummary)
+  }
+
+  }
+  componentWillReceiveProps(nextProps){
+    this.fetchDeck(nextProps.deckSummary)
   }
 
   render(){
-  let cardsPage = () => "Loading"
+  let cardsPage = () => "Loading..."
 
   if(Object.keys(this.state.activeDeck).length > 0){
     cardsPage = () => {
